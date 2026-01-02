@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baking App - Simone's Kitchen Companion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">🧁 Baking App</h1>
+                <p class="app-subtitle">Simone's Kitchen Companion</p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-view="home">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-item" data-view="recipes">
+                <span class="nav-icon">📖</span>
+                <span class="nav-label">Recipes</span>
+            </button>
+            <button class="nav-item" data-view="timers">
+                <span class="nav-icon">⏲️</span>
+                <span class="nav-label">Timers</span>
+            </button>
+            <button class="nav-item" data-view="stopwatch">
+                <span class="nav-icon">⏱️</span>
+                <span class="nav-label">Stopwatch</span>
+            </button>
+            <button class="nav-item" data-view="alarms">
+                <span class="nav-icon">⏰</span>
+                <span class="nav-label">Alarms</span>
+            </button>
+            <button class="nav-item" data-view="helpers">
+                <span class="nav-icon">🔧</span>
+                <span class="nav-label">Helpers</span>
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- HOME VIEW -->
+            <section class="view active" id="view-home">
+                <div class="mascots-header">
+                    <div class="mascot" id="bailey-mascot"></div>
+                    <div class="mascot" id="nellie-mascot"></div>
+                </div>
+
+                <div class="greeting-card card">
+                    <h2>Hi Simone! 👋</h2>
+                    <p>Ready to bake something amazing today?</p>
+                </div>
+
+                <div class="dog-tip-card card" id="dogTipCard">
+                    <div class="tip-header">
+                        <span class="tip-icon">💡</span>
+                        <h3>Baking Tip</h3>
+                    </div>
+                    <p class="tip-text" id="dogTipText"></p>
+                    <p class="tip-author" id="dogTipAuthor"></p>
+                </div>
+
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-grid">
+                        <button class="action-btn" onclick="app.quickStartTimer()">
+                            <span class="action-icon">⏲️</span>
+                            <span>Start Timer</span>
+                        </button>
+                        <button class="action-btn" onclick="app.quickAddRecipe()">
+                            <span class="action-icon">➕</span>
+                            <span>Add Recipe</span>
+                        </button>
+                        <button class="action-btn" onclick="app.quickStartStopwatch()">
+                            <span class="action-icon">⏱️</span>
+                            <span>Stopwatch</span>
+                        </button>
+                        <button class="action-btn" onclick="app.quickAddAlarm()">
+                            <span class="action-icon">⏰</span>
+                            <span>Add Alarm</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="stats-card card">
+                    <h3>Your Baking Journey</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="recipeCount">0</div>
+                            <div class="stat-label">Recipes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="favoriteCount">0</div>
+                            <div class="stat-label">Favorites</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RECIPES VIEW -->
+            <section class="view" id="view-recipes">
+                <div class="view-header">
+                    <h2>Recipe Book</h2>
+                    <button class="btn btn-primary" onclick="app.showAddRecipeForm()">+ Add Recipe</button>
+                </div>
+
+                <div class="recipe-controls">
+                    <input type="text" class="search-input" id="recipeSearch" placeholder="Search recipes...">
+                    <div class="tag-filters" id="tagFilters"></div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showFavoritesOnly">
+                        <span>Favorites Only ⭐</span>
+                    </label>
+                </div>
+
+                <div class="recipes-list" id="recipesList"></div>
+
+                <!-- Recipe Detail Modal -->
+                <div class="modal" id="recipeDetailModal">
+                    <div class="modal-content large">
+                        <button class="modal-close" onclick="app.closeRecipeDetail()">&times;</button>
+                        <div id="recipeDetailContent"></div>
+                    </div>
+                </div>
+
+                <!-- Add/Edit Recipe Modal -->
+                <div class="modal" id="recipeFormModal">
+                    <div class="modal-content large">
+                        <button class="modal-close" onclick="app.closeRecipeForm()">&times;</button>
+                        <h2 id="recipeFormTitle">Add Recipe</h2>
+                        <form id="recipeForm" onsubmit="app.saveRecipe(event)">
+                            <div class="form-group">
+                                <label>Recipe Name *</label>
+                                <input type="text" id="recipeName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Tags (comma-separated)</label>
+                                <input type="text" id="recipeTags" placeholder="e.g. cookies, chocolate, quick">
+                            </div>
+                            <div class="form-group">
+                                <label>Ingredients * (one per line)</label>
+                                <textarea id="recipeIngredients" rows="6" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Steps * (one per line)</label>
+                                <textarea id="recipeSteps" rows="8" required></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Temperature</label>
+                                    <input type="text" id="recipeTemp" placeholder="e.g. 180°C / 350°F">
+                                </div>
+                                <div class="form-group">
+                                    <label>Time</label>
+                                    <input type="text" id="recipeTime" placeholder="e.g. 25-30 min">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Notes</label>
+                                <textarea id="recipeNotes" rows="3"></textarea>
+                            </div>
+                            <input type="hidden" id="recipeId">
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" onclick="app.closeRecipeForm()">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save Recipe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Shopping List Modal -->
+                <div class="modal" id="shoppingListModal">
+                    <div class="modal-content">
+                        <button class="modal-close" onclick="app.closeShoppingList()">&times;</button>
+                        <h2>Shopping List</h2>
+                        <div class="shopping-list-controls">
+                            <label>Select recipes to combine:</label>
+                            <div id="shoppingRecipeSelect"></div>
+                            <button class="btn btn-primary" onclick="app.generateShoppingList()">Generate List</button>
+                        </div>
+                        <div id="shoppingListContent"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TIMERS VIEW -->
+            <section class="view" id="view-timers">
+                <div class="view-header">
+                    <h2>Timers</h2>
+                    <div class="mascot-inline" id="bailey-timer"></div>
+                </div>
+
+                <div class="timer-presets">
+                    <h3>Quick Presets</h3>
+                    <div class="preset-grid">
+                        <button class="preset-btn" onclick="app.addPresetTimer(600, 'Preheat Oven')">
+                            <span>🔥</span>
+                            <span>Preheat Oven</span>
+                            <span class="preset-time">10 min</span>
+                        </button>
+                        <button class="preset-btn" onclick="app.addPresetTimer(1800, 'Take Butter Out')">
+                            <span>🧈</span>
+                            <span>Take Butter Out</span>
+                            <span class="preset-time">30 min</span>
+                        </button>
+                        <button class="preset-btn" onclick="app.addPresetTimer(480, 'Check Cookies')">
+                            <span>🍪</span>
+                            <span>Check Cookies</span>
+                            <span class="preset-time">8 min</span>
+                        </button>
+                        <button class="preset-btn" onclick="app.addPresetTimer(2700, 'Bread Proofing')">
+                            <span>🍞</span>
+                            <span>Bread Proofing</span>
+                            <span class="preset-time">45 min</span>
+                        </button>
+                        <button class="preset-btn" onclick="app.addPresetTimer(1200, 'Cake Cooldown')">
+                            <span>🎂</span>
+                            <span>Cake Cooldown</span>
+                            <span class="preset-time">20 min</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="custom-timer-add">
+                    <h3>Custom Timer</h3>
+                    <div class="timer-input-row">
+                        <input type="number" id="customTimerMin" placeholder="Minutes" min="0" max="999" value="5">
+                        <input type="number" id="customTimerSec" placeholder="Seconds" min="0" max="59" value="0">
+                        <input type="text" id="customTimerLabel" placeholder="Label (optional)">
+                        <button class="btn btn-primary" onclick="app.addCustomTimer()">Add Timer</button>
+                    </div>
+                </div>
+
+                <div class="active-timers" id="activeTimers"></div>
+
+                <!-- Timer Complete Modal -->
+                <div class="modal" id="timerCompleteModal">
+                    <div class="modal-content">
+                        <h2>⏲️ Timer Complete!</h2>
+                        <div class="celebration-mascots">
+                            <div class="mascot-celebrate" id="bailey-celebrate"></div>
+                            <div class="mascot-celebrate" id="nellie-celebrate"></div>
+                        </div>
+                        <p class="timer-complete-label" id="timerCompleteLabel"></p>
+                        <div class="modal-actions">
+                            <button class="btn btn-primary" onclick="app.dismissTimerComplete()">Dismiss</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STOPWATCH VIEW -->
+            <section class="view" id="view-stopwatch">
+                <div class="view-header">
+                    <h2>Stopwatch</h2>
+                    <div class="mascot-inline" id="nellie-stopwatch"></div>
+                </div>
+
+                <div class="stopwatch-display">
+                    <div class="stopwatch-time" id="stopwatchDisplay">00:00:00.0</div>
+                    <div class="stopwatch-controls">
+                        <button class="btn btn-large btn-success" id="stopwatchStartBtn" onclick="app.startStopwatch()">Start</button>
+                        <button class="btn btn-large btn-warning" id="stopwatchSplitBtn" onclick="app.splitStopwatch()" disabled>Split</button>
+                        <button class="btn btn-large btn-secondary" id="stopwatchResetBtn" onclick="app.resetStopwatch()">Reset</button>
+                    </div>
+                </div>
+
+                <div class="splits-section">
+                    <div class="splits-header">
+                        <h3>Splits</h3>
+                        <button class="btn btn-small" id="copySplitsBtn" onclick="app.copySplits()" disabled>Copy All</button>
+                    </div>
+                    <div class="splits-list" id="splitsList"></div>
+                </div>
+            </section>
+
+            <!-- ALARMS VIEW -->
+            <section class="view" id="view-alarms">
+                <div class="view-header">
+                    <h2>Alarms</h2>
+                    <button class="btn btn-primary" onclick="app.showAddAlarmForm()">+ Add Alarm</button>
+                </div>
+
+                <div class="alarm-info card">
+                    <p><strong>Note:</strong> Alarms work while this tab is open. For best results, enable browser notifications.</p>
+                    <button class="btn btn-small" id="notificationPermBtn" onclick="app.requestNotificationPermission()">Enable Notifications</button>
+                </div>
+
+                <div class="alarm-presets">
+                    <h3>Quick Presets</h3>
+                    <div class="preset-grid">
+                        <button class="preset-btn" onclick="app.addPresetAlarm(10, 'Preheat Oven')">
+                            <span>🔥</span>
+                            <span>Preheat Oven</span>
+                            <span class="preset-time">+10 min</span>
+                        </button>
+                        <button class="preset-btn" onclick="app.addPresetAlarm(30, 'Take Butter Out')">
+                            <span>🧈</span>
+                            <span>Take Butter Out</span>
+                            <span class="preset-time">+30 min</span>
+                        </button>
+                        <button class="preset-btn" onclick="app.addPresetAlarm(8, 'Check Cookies')">
+                            <span>🍪</span>
+                            <span>Check Cookies</span>
+                            <span class="preset-time">+8 min</span>
+                        </button>
+                        <button class="preset-btn" onclick="app.addPresetAlarm(45, 'Bread Proofing')">
+                            <span>🍞</span>
+                            <span>Bread Proofing</span>
+                            <span class="preset-time">+45 min</span>
+                        </button>
+                        <button class="preset-btn" onclick="app.addPresetAlarm(20, 'Cake Cooldown')">
+                            <span>🎂</span>
+                            <span>Cake Cooldown</span>
+                            <span class="preset-time">+20 min</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="alarms-list" id="alarmsList"></div>
+
+                <!-- Add/Edit Alarm Modal -->
+                <div class="modal" id="alarmFormModal">
+                    <div class="modal-content">
+                        <button class="modal-close" onclick="app.closeAlarmForm()">&times;</button>
+                        <h2 id="alarmFormTitle">Add Alarm</h2>
+                        <form id="alarmForm" onsubmit="app.saveAlarm(event)">
+                            <div class="form-group">
+                                <label>Time *</label>
+                                <input type="time" id="alarmTime" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Label</label>
+                                <input type="text" id="alarmLabel" placeholder="e.g. Check bread">
+                            </div>
+                            <div class="form-group">
+                                <label>Repeat</label>
+                                <select id="alarmRepeat">
+                                    <option value="once">Once</option>
+                                    <option value="daily">Daily</option>
+                                    <option value="weekdays">Weekdays</option>
+                                    <option value="weekends">Weekends</option>
+                                    <option value="custom">Custom Days</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="customDaysGroup" style="display:none;">
+                                <label>Select Days</label>
+                                <div class="days-selector">
+                                    <label><input type="checkbox" class="day-check" value="0"> Sun</label>
+                                    <label><input type="checkbox" class="day-check" value="1"> Mon</label>
+                                    <label><input type="checkbox" class="day-check" value="2"> Tue</label>
+                                    <label><input type="checkbox" class="day-check" value="3"> Wed</label>
+                                    <label><input type="checkbox" class="day-check" value="4"> Thu</label>
+                                    <label><input type="checkbox" class="day-check" value="5"> Fri</label>
+                                    <label><input type="checkbox" class="day-check" value="6"> Sat</label>
+                                </div>
+                            </div>
+                            <input type="hidden" id="alarmId">
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" onclick="app.closeAlarmForm()">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save Alarm</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Alarm Trigger Modal -->
+                <div class="modal" id="alarmTriggerModal">
+                    <div class="modal-content">
+                        <h2>⏰ Alarm!</h2>
+                        <div class="celebration-mascots">
+                            <div class="mascot-celebrate" id="bailey-alarm"></div>
+                            <div class="mascot-celebrate" id="nellie-alarm"></div>
+                        </div>
+                        <p class="alarm-trigger-time" id="alarmTriggerTime"></p>
+                        <p class="alarm-trigger-label" id="alarmTriggerLabel"></p>
+                        <div class="modal-actions">
+                            <button class="btn btn-secondary" onclick="app.snoozeAlarm(5)">Snooze 5 min</button>
+                            <button class="btn btn-secondary" onclick="app.snoozeAlarm(10)">Snooze 10 min</button>
+                            <button class="btn btn-primary" onclick="app.dismissAlarm()">Dismiss</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HELPERS VIEW -->
+            <section class="view" id="view-helpers">
+                <div class="view-header">
+                    <h2>Baking Helpers</h2>
+                </div>
+
+                <!-- Unit Converter -->
+                <div class="helper-section card">
+                    <h3>🔢 Unit Converter</h3>
+                    <div class="converter-tabs">
+                        <button class="tab-btn active" onclick="app.switchConverter('weight')">Weight</button>
+                        <button class="tab-btn" onclick="app.switchConverter('volume')">Volume</button>
+                        <button class="tab-btn" onclick="app.switchConverter('temp')">Temperature</button>
+                    </div>
+
+                    <div class="converter-content active" id="converter-weight">
+                        <div class="converter-row">
+                            <input type="number" id="weightInput" placeholder="0" step="any">
+                            <select id="weightFromUnit">
+                                <option value="g">Grams (g)</option>
+                                <option value="oz">Ounces (oz)</option>
+                                <option value="lb">Pounds (lb)</option>
+                                <option value="kg">Kilograms (kg)</option>
+                            </select>
+                        </div>
+                        <div class="converter-arrow">⬇️</div>
+                        <div class="converter-result" id="weightResult">0 g</div>
+                    </div>
+
+                    <div class="converter-content" id="converter-volume">
+                        <div class="converter-row">
+                            <input type="number" id="volumeInput" placeholder="0" step="any">
+                            <select id="volumeFromUnit">
+                                <option value="ml">Milliliters (ml)</option>
+                                <option value="l">Liters (L)</option>
+                                <option value="cup">Cups</option>
+                                <option value="tbsp">Tablespoons</option>
+                                <option value="tsp">Teaspoons</option>
+                                <option value="floz">Fluid Ounces (fl oz)</option>
+                            </select>
+                        </div>
+                        <div class="converter-arrow">⬇️</div>
+                        <div class="converter-result" id="volumeResult">0 ml</div>
+                    </div>
+
+                    <div class="converter-content" id="converter-temp">
+                        <div class="converter-row">
+                            <input type="number" id="tempInput" placeholder="0" step="any">
+                            <select id="tempFromUnit">
+                                <option value="c">Celsius (°C)</option>
+                                <option value="f">Fahrenheit (°F)</option>
+                            </select>
+                        </div>
+                        <div class="converter-arrow">⬇️</div>
+                        <div class="converter-result" id="tempResult">0°C / 0°F</div>
+                    </div>
+                </div>
+
+                <!-- Pan Size Converter -->
+                <div class="helper-section card">
+                    <h3>🍰 Pan Size Converter</h3>
+                    <p class="helper-description">Convert recipe quantities between different pan sizes</p>
+                    <div class="pan-converter">
+                        <div class="pan-input">
+                            <label>Original Pan</label>
+                            <select id="originalPan">
+                                <option value="113">8" Round (113 sq in)</option>
+                                <option value="154">9" Round (154 sq in)</option>
+                                <option value="201">10" Round (201 sq in)</option>
+                                <option value="64">8" Square (64 sq in)</option>
+                                <option value="81">9" Square (81 sq in)</option>
+                                <option value="117">9x13" Rectangle (117 sq in)</option>
+                            </select>
+                        </div>
+                        <div class="pan-input">
+                            <label>New Pan</label>
+                            <select id="newPan">
+                                <option value="113">8" Round (113 sq in)</option>
+                                <option value="154">9" Round (154 sq in)</option>
+                                <option value="201">10" Round (201 sq in)</option>
+                                <option value="64">8" Square (64 sq in)</option>
+                                <option value="81">9" Square (81 sq in)</option>
+                                <option value="117">9x13" Rectangle (117 sq in)</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" onclick="app.calculatePanConversion()">Calculate</button>
+                        <div class="pan-result" id="panResult"></div>
+                    </div>
+                </div>
+
+                <!-- Substitution Helper -->
+                <div class="helper-section card">
+                    <h3>🔄 Substitution Helper</h3>
+                    <p class="helper-description">Common ingredient substitutions (use with caution!)</p>
+                    <select id="substitutionSelect" onchange="app.showSubstitution()">
+                        <option value="">Select an ingredient...</option>
+                        <option value="butter">Butter</option>
+                        <option value="egg">Egg</option>
+                        <option value="milk">Milk</option>
+                        <option value="buttermilk">Buttermilk</option>
+                        <option value="sugar">White Sugar</option>
+                        <option value="flour">All-Purpose Flour</option>
+                        <option value="bakingpowder">Baking Powder</option>
+                        <option value="vanilla">Vanilla Extract</option>
+                    </select>
+                    <div class="substitution-result" id="substitutionResult"></div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
