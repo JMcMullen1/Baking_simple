@@ -54,7 +54,7 @@ body {
 
 .app-header {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-md);
     text-align: center;
     box-shadow: var(--shadow-md);
     position: sticky;
@@ -62,16 +62,46 @@ body {
     z-index: 100;
 }
 
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.header-mascot {
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: bounce 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.header-bailey {
+    background-image: url('https://i.postimg.cc/fyR2Lww6/Bailey-for-baking-app-no-background.png');
+}
+
+.header-nellie {
+    background-image: url('https://i.postimg.cc/kXhZ2tt4/Nellie-for-baking-app-no-background.png');
+    animation-delay: 0.5s;
+}
+
+.header-text {
+    flex-shrink: 0;
+}
+
 .app-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: white;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 0;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .app-subtitle {
     color: rgba(255,255,255,0.9);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .main-content {
@@ -181,33 +211,6 @@ body {
 }
 
 /* ===== MASCOTS ===== */
-.mascots-header {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
-}
-
-.mascot, .mascot-inline, .mascot-celebrate {
-    width: 160px;
-    height: 160px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    animation: bounce 2s ease-in-out infinite;
-}
-
-.mascot-inline {
-    width: 80px;
-    height: 80px;
-}
-
-.mascot-celebrate {
-    width: 140px;
-    height: 140px;
-    animation: celebrate 1s ease-in-out infinite;
-}
-
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -219,19 +222,34 @@ body {
     75% { transform: scale(1.1) rotate(5deg); }
 }
 
-/* SVG placeholders will be set via JS */
-#bailey-mascot, #bailey-timer, #bailey-celebrate, #bailey-alarm {
+@keyframes wagTail {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(3deg); }
+    75% { transform: rotate(-3deg); }
+}
+
+/* Bailey image selectors */
+#bailey-mascot, #bailey-timer, #bailey-celebrate, #bailey-alarm,
+.section-bailey-small, .section-bailey-large, .empty-bailey, .tip-avatar-bailey {
     background-image: url('https://i.postimg.cc/fyR2Lww6/Bailey-for-baking-app-no-background.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-#nellie-mascot, #nellie-stopwatch, #nellie-celebrate, #nellie-alarm {
+/* Nellie image selectors */
+#nellie-mascot, #nellie-stopwatch, #nellie-celebrate, #nellie-alarm,
+.section-nellie-small, .section-nellie-large, .empty-nellie, .tip-avatar-nellie {
     background-image: url('https://i.postimg.cc/kXhZ2tt4/Nellie-for-baking-app-no-background.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.mascot-celebrate {
+    width: 140px;
+    height: 140px;
+    animation: celebrate 1s ease-in-out infinite;
 }
 
 .celebration-mascots {
@@ -241,15 +259,149 @@ body {
     margin: var(--spacing-lg) 0;
 }
 
+.celebration-modal {
+    text-align: center;
+}
+
+.celebration-pup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.celebration-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-primary-dark);
+}
+
+.celebration-says {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+/* ===== PUPS HERO SECTION ===== */
+.pups-hero {
+    margin-bottom: var(--spacing-lg);
+}
+
+.pups-hero-title {
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.pups-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.pup-card {
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--color-primary);
+}
+
+.pup-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.pup-card-bailey {
+    border-top-color: var(--color-primary);
+}
+
+.pup-card-nellie {
+    border-top-color: var(--color-secondary);
+}
+
+.pup-avatar {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto var(--spacing-md);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: bounce 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.pup-card-nellie .pup-avatar {
+    animation-delay: 0.5s;
+}
+
+.pup-name {
+    font-size: 1.3rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 2px;
+}
+
+.pup-breed {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xs);
+}
+
+.pup-role {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-bg);
+    display: inline-block;
+    padding: 2px var(--spacing-sm);
+    border-radius: var(--radius-xl);
+}
+
 /* ===== GREETING & TIP ===== */
+.greeting-card {
+    text-align: center;
+}
+
 .greeting-card h2 {
     color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
 }
 
+/* Dog Tip Card with Mascot Avatar */
 .dog-tip-card {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-warning) 100%);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
     border: none;
+    transition: background 0.5s ease;
+}
+
+.dog-tip-card.tip-bailey-theme {
+    background: linear-gradient(135deg, #FFE4E9 0%, var(--color-accent) 100%);
+}
+
+.dog-tip-card.tip-nellie-theme {
+    background: linear-gradient(135deg, #D4EDFF 0%, var(--color-secondary) 100%);
+}
+
+.tip-mascot-avatar {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    border-radius: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    animation: wagTail 2s ease-in-out infinite;
+}
+
+.tip-bubble {
+    flex: 1;
 }
 
 .tip-header {
@@ -259,20 +411,112 @@ body {
     margin-bottom: var(--spacing-sm);
 }
 
-.tip-icon {
-    font-size: 1.5rem;
+.tip-header h3 {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.tip-badge {
+    font-size: 0.7rem;
+    background: rgba(255,255,255,0.7);
+    padding: 2px var(--spacing-sm);
+    border-radius: var(--radius-xl);
+    color: var(--color-text-light);
+    font-weight: 500;
 }
 
 .tip-text {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--color-text);
+    line-height: 1.5;
+}
+
+/* ===== SECTION MASCOT BANNERS ===== */
+.section-mascot-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background: var(--color-card);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-primary);
+}
+
+.section-mascot-banner.bailey-banner {
+    border-left-color: var(--color-primary);
+}
+
+.section-mascot-banner.nellie-banner {
+    border-left-color: var(--color-secondary);
+}
+
+.section-mascot-img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+.section-mascot-img.section-bailey-small,
+.section-mascot-img.section-nellie-small {
+    width: 60px;
+    height: 60px;
+    animation: bounce 3s ease-in-out infinite;
+}
+
+.section-mascot-img.section-nellie-small {
+    animation-delay: 0.5s;
+}
+
+.section-mascot-img.section-bailey-large,
+.section-mascot-img.section-nellie-large {
+    width: 90px;
+    height: 90px;
+    animation: bounce 3s ease-in-out infinite;
+}
+
+.section-mascot-speech {
+    flex: 1;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+.section-mascot-speech strong {
+    color: var(--color-primary-dark);
+}
+
+/* ===== EMPTY STATES WITH MASCOTS ===== */
+.empty-state-mascot {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.empty-mascot-img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--spacing-md);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: bounce 3s ease-in-out infinite;
+    opacity: 0.85;
+}
+
+.empty-state-mascot h3 {
+    color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
 }
 
-.tip-author {
-    font-size: 0.9rem;
+.empty-state-mascot p {
     color: var(--color-text-light);
-    font-style: italic;
+    margin-bottom: var(--spacing-md);
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ===== QUICK ACTIONS ===== */
@@ -1117,7 +1361,58 @@ body {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
     .app-title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .header-mascot {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header-content {
+        gap: var(--spacing-sm);
+    }
+
+    .pups-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .pup-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .pup-name {
+        font-size: 1.1rem;
+    }
+
+    .pup-card {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .tip-mascot-avatar {
+        width: 55px;
+        height: 55px;
+        min-width: 55px;
+    }
+
+    .section-mascot-banner {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+
+    .section-mascot-img.section-bailey-large,
+    .section-mascot-img.section-nellie-large {
+        width: 70px;
+        height: 70px;
+    }
+
+    .mascot-celebrate {
+        width: 100px;
+        height: 100px;
     }
 
     .action-grid {

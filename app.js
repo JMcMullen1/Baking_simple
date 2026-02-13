@@ -72,16 +72,20 @@ class BakingApp {
 
         // Dog tips
         this.dogTips = [
-            { text: "Always bring butter to room temperature for better creaming!", author: "- Bailey" },
-            { text: "Preheat your oven while you prep - it saves time!", author: "- Nellie" },
-            { text: "Measure flour by spooning it into the cup, not scooping!", author: "- Bailey" },
-            { text: "Room temperature eggs mix better into batters!", author: "- Nellie" },
-            { text: "Don't overmix cake batter - it makes it tough!", author: "- Bailey" },
-            { text: "Let cookies cool on the pan for 2 minutes before moving!", author: "- Nellie" },
-            { text: "Use parchment paper for easy cleanup!", author: "- Bailey" },
-            { text: "Test cakes with a toothpick - it should come out clean!", author: "- Nellie" },
-            { text: "Chill cookie dough for better texture!", author: "- Bailey" },
-            { text: "Always check your oven temperature with a thermometer!", author: "- Nellie" }
+            { text: "Always bring butter to room temperature for better creaming! I like to sit by the counter and guard it.", author: "- Bailey" },
+            { text: "Preheat your oven while you prep - it saves time! I'll stand guard by the oven door.", author: "- Nellie" },
+            { text: "Measure flour by spooning it into the cup, not scooping! Precision matters, even if I prefer to just eat it.", author: "- Bailey" },
+            { text: "Room temperature eggs mix better into batters! I learned this while taste-testing... I mean supervising.", author: "- Nellie" },
+            { text: "Don't overmix cake batter - it makes it tough! Gentle paws make the best treats.", author: "- Bailey" },
+            { text: "Let cookies cool on the pan for 2 minutes before moving! The hardest 2 minutes of my life, every time.", author: "- Nellie" },
+            { text: "Use parchment paper for easy cleanup! Less cleaning means more time for belly rubs.", author: "- Bailey" },
+            { text: "Test cakes with a toothpick - it should come out clean! I volunteer as taste tester if the toothpick fails.", author: "- Nellie" },
+            { text: "Chill cookie dough for better texture! I'll keep you company in the kitchen while we wait.", author: "- Bailey" },
+            { text: "Always check your oven temperature with a thermometer! A golden rule, just like my golden fur.", author: "- Nellie" },
+            { text: "Brown butter adds incredible nutty flavor to cookies! I can teach you the art of patience.", author: "- Bailey" },
+            { text: "Sift your dry ingredients for the fluffiest cakes! I've been practicing my sifting technique with my paws.", author: "- Nellie" },
+            { text: "A pinch of salt enhances sweetness in any dessert! Even I know that, and I'll eat anything.", author: "- Bailey" },
+            { text: "Let bread dough rise in a warm spot - I recommend next to me because I'm always warm and cozy!", author: "- Nellie" }
         ];
         this.currentTipIndex = 0;
 
@@ -303,8 +307,25 @@ class BakingApp {
 
     showDogTip() {
         const tip = this.dogTips[this.currentTipIndex];
-        document.getElementById('dogTipText').textContent = tip.text;
-        document.getElementById('dogTipAuthor').textContent = tip.author;
+        const tipCard = document.getElementById('dogTipCard');
+        const tipAvatar = document.getElementById('tipMascotAvatar');
+        const tipAuthor = document.getElementById('dogTipAuthor');
+        const tipText = document.getElementById('dogTipText');
+
+        if (tipText) tipText.textContent = tip.text;
+
+        // Determine which dog is speaking and style accordingly
+        const isBailey = tip.author.includes('Bailey');
+        if (tipAvatar) {
+            tipAvatar.className = 'tip-mascot-avatar ' + (isBailey ? 'tip-avatar-bailey' : 'tip-avatar-nellie');
+        }
+        if (tipAuthor) {
+            tipAuthor.textContent = isBailey ? 'Bailey says...' : 'Nellie says...';
+        }
+        if (tipCard) {
+            tipCard.className = 'dog-tip-card card ' + (isBailey ? 'tip-bailey-theme' : 'tip-nellie-theme');
+        }
+
         this.currentTipIndex = (this.currentTipIndex + 1) % this.dogTips.length;
     }
 
@@ -368,7 +389,13 @@ class BakingApp {
         }
 
         if (filtered.length === 0) {
-            container.innerHTML = '<div class="card"><p>No recipes found. Add your first recipe!</p></div>';
+            container.innerHTML = `
+                <div class="empty-state-mascot card">
+                    <div class="empty-mascot-img empty-nellie"></div>
+                    <h3>No recipes found!</h3>
+                    <p>Nellie is waiting for you to add your first recipe. She promises not to eat it... maybe.</p>
+                    <button class="btn btn-primary" onclick="app.showAddRecipeForm()">+ Add Your First Recipe</button>
+                </div>`;
             return;
         }
 
@@ -655,7 +682,12 @@ class BakingApp {
         });
 
         if (this.timers.length === 0) {
-            container.innerHTML = '<div class="card"><p>No active timers. Add one above!</p></div>';
+            container.innerHTML = `
+                <div class="empty-state-mascot card">
+                    <div class="empty-mascot-img empty-bailey"></div>
+                    <h3>No active timers</h3>
+                    <p>Bailey is ready to watch the oven for you! Add a timer above to get started.</p>
+                </div>`;
             return;
         }
 
@@ -952,7 +984,12 @@ class BakingApp {
         if (!container) return;
 
         if (this.alarms.length === 0) {
-            container.innerHTML = '<div class="card"><p>No alarms set. Add one above!</p></div>';
+            container.innerHTML = `
+                <div class="empty-state-mascot card">
+                    <div class="empty-mascot-img empty-nellie"></div>
+                    <h3>No alarms set</h3>
+                    <p>Nellie will keep one ear up for you! Set an alarm and she'll make sure you don't miss a thing.</p>
+                </div>`;
             return;
         }
 

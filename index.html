@@ -13,8 +13,12 @@
         <!-- Header -->
         <header class="app-header">
             <div class="header-content">
-                <h1 class="app-title">🧁 Baking App</h1>
-                <p class="app-subtitle">Simone's Kitchen Companion</p>
+                <div class="header-mascot header-bailey"></div>
+                <div class="header-text">
+                    <h1 class="app-title">Baking App</h1>
+                    <p class="app-subtitle">Simone's Kitchen Companion</p>
+                </div>
+                <div class="header-mascot header-nellie"></div>
             </div>
         </header>
 
@@ -51,23 +55,40 @@
 
             <!-- HOME VIEW -->
             <section class="view active" id="view-home">
-                <div class="mascots-header">
-                    <div class="mascot" id="bailey-mascot"></div>
-                    <div class="mascot" id="nellie-mascot"></div>
-                </div>
-
                 <div class="greeting-card card">
-                    <h2>Hi Simone! 👋</h2>
+                    <h2>Hi Simone!</h2>
                     <p>Ready to bake something amazing today?</p>
                 </div>
 
-                <div class="dog-tip-card card" id="dogTipCard">
-                    <div class="tip-header">
-                        <span class="tip-icon">💡</span>
-                        <h3>Baking Tip</h3>
+                <!-- Meet the Pups Hero Section -->
+                <div class="pups-hero">
+                    <h3 class="pups-hero-title">Your Baking Buddies</h3>
+                    <div class="pups-cards">
+                        <div class="pup-card pup-card-bailey">
+                            <div class="pup-avatar" id="bailey-mascot"></div>
+                            <h4 class="pup-name">Bailey</h4>
+                            <p class="pup-breed">King Charles Cavalier</p>
+                            <p class="pup-role">Head of Taste Testing</p>
+                        </div>
+                        <div class="pup-card pup-card-nellie">
+                            <div class="pup-avatar" id="nellie-mascot"></div>
+                            <h4 class="pup-name">Nellie</h4>
+                            <p class="pup-breed">Golden Retriever</p>
+                            <p class="pup-role">Chief Crumb Inspector</p>
+                        </div>
                     </div>
-                    <p class="tip-text" id="dogTipText"></p>
-                    <p class="tip-author" id="dogTipAuthor"></p>
+                </div>
+
+                <!-- Dog Tip with Speech Bubble -->
+                <div class="dog-tip-card card" id="dogTipCard">
+                    <div class="tip-mascot-avatar" id="tipMascotAvatar"></div>
+                    <div class="tip-bubble">
+                        <div class="tip-header">
+                            <h3 id="dogTipAuthor"></h3>
+                            <span class="tip-badge">Baking Tip</span>
+                        </div>
+                        <p class="tip-text" id="dogTipText"></p>
+                    </div>
                 </div>
 
                 <div class="quick-actions">
@@ -115,6 +136,14 @@
                         <button class="btn btn-small btn-danger" onclick="app.deleteAllRecipes()">Delete All</button>
                         <button class="btn btn-primary" onclick="app.showAddRecipeForm()">+ Add Recipe</button>
                     </div>
+                </div>
+
+                <div class="section-mascot-banner">
+                    <div class="section-mascot-img section-bailey-small"></div>
+                    <div class="section-mascot-speech">
+                        <strong>Bailey says:</strong> "I've taste-tested every recipe here. They're all paw-fect!"
+                    </div>
+                    <div class="section-mascot-img section-nellie-small"></div>
                 </div>
 
                 <div class="recipe-controls">
@@ -202,7 +231,14 @@
                     <h2>Timers</h2>
                     <div class="view-header-actions">
                         <button class="btn btn-small btn-danger" onclick="app.clearAllTimers()">Clear All</button>
-                        <div class="mascot-inline" id="bailey-timer"></div>
+                    </div>
+                </div>
+
+                <div class="section-mascot-banner bailey-banner">
+                    <div class="section-mascot-img section-bailey-large" id="bailey-timer"></div>
+                    <div class="section-mascot-speech">
+                        <strong>Bailey is watching your timers!</strong><br>
+                        "I'll let you know when it's ready. I can smell cookies from a mile away!"
                     </div>
                 </div>
 
@@ -251,11 +287,19 @@
 
                 <!-- Timer Complete Modal -->
                 <div class="modal" id="timerCompleteModal">
-                    <div class="modal-content">
-                        <h2>⏲️ Timer Complete!</h2>
+                    <div class="modal-content celebration-modal">
+                        <h2>Timer Complete!</h2>
                         <div class="celebration-mascots">
-                            <div class="mascot-celebrate" id="bailey-celebrate"></div>
-                            <div class="mascot-celebrate" id="nellie-celebrate"></div>
+                            <div class="celebration-pup">
+                                <div class="mascot-celebrate" id="bailey-celebrate"></div>
+                                <span class="celebration-name">Bailey</span>
+                                <span class="celebration-says">"Woof! It's done!"</span>
+                            </div>
+                            <div class="celebration-pup">
+                                <div class="mascot-celebrate" id="nellie-celebrate"></div>
+                                <span class="celebration-name">Nellie</span>
+                                <span class="celebration-says">"Smells amazing!"</span>
+                            </div>
                         </div>
                         <p class="timer-complete-label" id="timerCompleteLabel"></p>
                         <div class="modal-actions">
@@ -269,7 +313,14 @@
             <section class="view" id="view-stopwatch">
                 <div class="view-header">
                     <h2>Stopwatch</h2>
-                    <div class="mascot-inline" id="nellie-stopwatch"></div>
+                </div>
+
+                <div class="section-mascot-banner nellie-banner">
+                    <div class="section-mascot-img section-nellie-large" id="nellie-stopwatch"></div>
+                    <div class="section-mascot-speech">
+                        <strong>Nellie is keeping time!</strong><br>
+                        "Precision is key in baking. I've got my eyes on the clock!"
+                    </div>
                 </div>
 
                 <div class="stopwatch-display">
@@ -301,6 +352,15 @@
                         <button class="btn btn-small btn-danger" onclick="app.clearAllAlarms()">Clear All</button>
                         <button class="btn btn-primary" onclick="app.showAddAlarmForm()">+ Add Alarm</button>
                     </div>
+                </div>
+
+                <div class="section-mascot-banner">
+                    <div class="section-mascot-img section-nellie-small"></div>
+                    <div class="section-mascot-speech">
+                        <strong>Nellie & Bailey are on alarm duty!</strong><br>
+                        "We'll bark... er, ring when it's time!"
+                    </div>
+                    <div class="section-mascot-img section-bailey-small"></div>
                 </div>
 
                 <div class="alarm-info card">
@@ -388,11 +448,19 @@
 
                 <!-- Alarm Trigger Modal -->
                 <div class="modal" id="alarmTriggerModal">
-                    <div class="modal-content">
-                        <h2>⏰ Alarm!</h2>
+                    <div class="modal-content celebration-modal">
+                        <h2>Alarm!</h2>
                         <div class="celebration-mascots">
-                            <div class="mascot-celebrate" id="bailey-alarm"></div>
-                            <div class="mascot-celebrate" id="nellie-alarm"></div>
+                            <div class="celebration-pup">
+                                <div class="mascot-celebrate" id="bailey-alarm"></div>
+                                <span class="celebration-name">Bailey</span>
+                                <span class="celebration-says">"Wake up, Simone!"</span>
+                            </div>
+                            <div class="celebration-pup">
+                                <div class="mascot-celebrate" id="nellie-alarm"></div>
+                                <span class="celebration-name">Nellie</span>
+                                <span class="celebration-says">"Time to check!"</span>
+                            </div>
                         </div>
                         <p class="alarm-trigger-time" id="alarmTriggerTime"></p>
                         <p class="alarm-trigger-label" id="alarmTriggerLabel"></p>
@@ -409,6 +477,13 @@
             <section class="view" id="view-helpers">
                 <div class="view-header">
                     <h2>Baking Helpers</h2>
+                </div>
+
+                <div class="section-mascot-banner">
+                    <div class="section-mascot-img section-bailey-small"></div>
+                    <div class="section-mascot-speech">
+                        <strong>Bailey's helpful hints:</strong> "Baking is science! Let me help you get the measurements right."
+                    </div>
                 </div>
 
                 <!-- Unit Converter -->
