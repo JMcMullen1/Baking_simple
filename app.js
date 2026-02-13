@@ -72,20 +72,20 @@ class BakingApp {
 
         // Dog tips
         this.dogTips = [
-            { text: "Always bring butter to room temperature for better creaming! I like to sit by the counter and guard it.", author: "- Bailey" },
-            { text: "Preheat your oven while you prep - it saves time! I'll stand guard by the oven door.", author: "- Nellie" },
-            { text: "Measure flour by spooning it into the cup, not scooping! Precision matters, even if I prefer to just eat it.", author: "- Bailey" },
-            { text: "Room temperature eggs mix better into batters! I learned this while taste-testing... I mean supervising.", author: "- Nellie" },
-            { text: "Don't overmix cake batter - it makes it tough! Gentle paws make the best treats.", author: "- Bailey" },
-            { text: "Let cookies cool on the pan for 2 minutes before moving! The hardest 2 minutes of my life, every time.", author: "- Nellie" },
-            { text: "Use parchment paper for easy cleanup! Less cleaning means more time for belly rubs.", author: "- Bailey" },
-            { text: "Test cakes with a toothpick - it should come out clean! I volunteer as taste tester if the toothpick fails.", author: "- Nellie" },
-            { text: "Chill cookie dough for better texture! I'll keep you company in the kitchen while we wait.", author: "- Bailey" },
-            { text: "Always check your oven temperature with a thermometer! A golden rule, just like my golden fur.", author: "- Nellie" },
-            { text: "Brown butter adds incredible nutty flavor to cookies! I can teach you the art of patience.", author: "- Bailey" },
-            { text: "Sift your dry ingredients for the fluffiest cakes! I've been practicing my sifting technique with my paws.", author: "- Nellie" },
-            { text: "A pinch of salt enhances sweetness in any dessert! Even I know that, and I'll eat anything.", author: "- Bailey" },
-            { text: "Let bread dough rise in a warm spot - I recommend next to me because I'm always warm and cozy!", author: "- Nellie" }
+            { text: "Always bring butter to room temperature for better creaming. One must exercise patience and refinement - I shall sit in my favourite spot and wait gracefully.", author: "- Bailey" },
+            { text: "PREHEAT YOUR OVEN WHILE YOU PREP! I just called the dog phone to double check and they said the same thing! Wait, which knob was it again?!", author: "- Nellie" },
+            { text: "Measure flour by spooning it into the cup, not scooping. Precision is the mark of a sophisticated baker. I wouldn't dream of doing it any other way.", author: "- Bailey" },
+            { text: "Room temperature eggs mix better into batters! I rang the dog phone to ask why and knocked three eggs off the counter while reaching for it. They still mixed in fine off the floor!", author: "- Nellie" },
+            { text: "Don't overmix cake batter - it makes it tough. A gentle, dignified approach yields the finest results. I eat my treats the same way - delicately, in my favourite spot.", author: "- Bailey" },
+            { text: "Let cookies cool on the pan for 2 minutes before moving! I tried to wait but I got nervous and ate them all in about 4 seconds. They were still good though!", author: "- Nellie" },
+            { text: "Use parchment paper for easy cleanup. A tidy kitchen is the sign of a distinguished baker. If the paper isn't placed correctly, I shall bark until someone fixes it.", author: "- Bailey" },
+            { text: "Test cakes with a toothpick - it should come out clean! I ate the toothpick. And then the cake. And then the wrapper. I should probably call the dog phone about this.", author: "- Nellie" },
+            { text: "Chill cookie dough for better texture. I shall wait with the composure of royalty. And if the dough isn't chilled to my standard, I will simply bark until it is.", author: "- Bailey" },
+            { text: "Always check your oven temperature with a thermometer! I tripped over the oven door, bumped into the table, and the thermometer went flying. The dog phone said 180 degrees so let's go with that!", author: "- Nellie" },
+            { text: "Brown butter adds incredible nutty flavor to cookies. Watch it carefully and with a discerning eye - much like how I observe my meals before eating each bite with care. Bang bang! ...oh sorry, force of habit.", author: "- Bailey" },
+            { text: "Sift your dry ingredients for the fluffiest cakes! I tried sifting but the flour went EVERYWHERE and now I look like a ghost and I'm sneezing and slightly panicking!", author: "- Nellie" },
+            { text: "A pinch of salt enhances sweetness in any dessert. A small but wise adjustment - the kind of sensible decision that separates the refined from the reckless.", author: "- Bailey" },
+            { text: "Let bread dough rise in a warm spot! I sat on it to keep it warm because I didn't know what else to do. Just called the dog phone and they said that's wrong. Oops.", author: "- Nellie" }
         ];
         this.currentTipIndex = 0;
 
@@ -393,7 +393,7 @@ class BakingApp {
                 <div class="empty-state-mascot card">
                     <div class="empty-mascot-img empty-nellie"></div>
                     <h3>No recipes found!</h3>
-                    <p>Nellie is waiting for you to add your first recipe. She promises not to eat it... maybe.</p>
+                    <p>Nellie is frantically waiting for your first recipe! She's already eaten the example one. And the paper it was written on. She called the dog phone to ask if that's okay.</p>
                     <button class="btn btn-primary" onclick="app.showAddRecipeForm()">+ Add Your First Recipe</button>
                 </div>`;
             return;
@@ -686,7 +686,7 @@ class BakingApp {
                 <div class="empty-state-mascot card">
                     <div class="empty-mascot-img empty-bailey"></div>
                     <h3>No active timers</h3>
-                    <p>Bailey is ready to watch the oven for you! Add a timer above to get started.</p>
+                    <p>Bailey is poised and ready to oversee your baking with regal composure. Add a timer and he shall supervise - barking only if standards slip.</p>
                 </div>`;
             return;
         }
@@ -988,7 +988,7 @@ class BakingApp {
                 <div class="empty-state-mascot card">
                     <div class="empty-mascot-img empty-nellie"></div>
                     <h3>No alarms set</h3>
-                    <p>Nellie will keep one ear up for you! Set an alarm and she'll make sure you don't miss a thing.</p>
+                    <p>Nellie will keep one ear up for you! She might nervously knock over the clock checking if it's time, but she means well. She's already called the dog phone twice about it.</p>
                 </div>`;
             return;
         }
