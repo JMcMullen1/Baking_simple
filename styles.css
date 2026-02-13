@@ -159,6 +159,12 @@ body {
     color: var(--color-primary);
 }
 
+.view-header-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
 /* ===== CARDS ===== */
 .card {
     background: var(--color-card);
@@ -598,6 +604,22 @@ body {
     margin-bottom: var(--spacing-xs);
 }
 
+.recipe-card-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-xs);
+}
+
+.recipe-delete-btn {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.recipe-card:hover .recipe-delete-btn {
+    opacity: 1;
+}
+
 .recipe-favorite {
     font-size: 1.5rem;
     cursor: pointer;
@@ -808,6 +830,11 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--spacing-md);
+}
+
+.splits-header-actions {
+    display: flex;
+    gap: var(--spacing-sm);
 }
 
 .splits-list {
@@ -1115,6 +1142,19 @@ body {
 
     .modal-content {
         padding: var(--spacing-lg);
+    }
+
+    .recipe-delete-btn {
+        opacity: 1;
+    }
+
+    .view-header {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+
+    .view-header-actions {
+        flex-wrap: wrap;
     }
 }
 
