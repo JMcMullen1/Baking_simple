@@ -381,8 +381,11 @@ class BakingApp {
                             ${recipe.tags.map(tag => `<span class="recipe-tag">${tag}</span>`).join('')}
                         </div>
                     </div>
-                    <div class="recipe-favorite" onclick="event.stopPropagation(); app.toggleFavorite('${recipe.id}')">
-                        ${recipe.favorite ? '⭐' : '☆'}
+                    <div class="recipe-card-actions">
+                        <div class="recipe-favorite" onclick="event.stopPropagation(); app.toggleFavorite('${recipe.id}')">
+                            ${recipe.favorite ? '⭐' : '☆'}
+                        </div>
+                        <button class="btn btn-small btn-danger recipe-delete-btn" onclick="event.stopPropagation(); app.deleteRecipe('${recipe.id}')">Delete</button>
                     </div>
                 </div>
                 <div class="recipe-meta">
@@ -579,7 +582,21 @@ class BakingApp {
         this.saveData();
         this.renderRecipes();
         this.updateStats();
-        this.closeRecipeDetail();
+
+        // Close detail modal if it's open
+        const modal = document.getElementById('recipeDetailModal');
+        if (modal && modal.classList.contains('active')) {
+            this.closeRecipeDetail();
+        }
+    }
+
+    deleteAllRecipes() {
+        if (this.recipes.length === 0) return;
+        if (!confirm('Delete all recipes? This cannot be undone.')) return;
+        this.recipes = [];
+        this.saveData();
+        this.renderRecipes();
+        this.updateStats();
     }
 
     closeRecipeForm() {
@@ -699,6 +716,13 @@ class BakingApp {
         this.updateTimers();
     }
 
+    clearAllTimers() {
+        if (this.timers.length === 0) return;
+        if (!confirm('Remove all timers?')) return;
+        this.timers = [];
+        this.updateTimers();
+    }
+
     onTimerComplete(timer) {
         this.playBeep();
         this.showNotification('Timer Complete!', `${timer.label} is done!`);
@@ -791,6 +815,7 @@ class BakingApp {
         splitsList.insertBefore(splitItem, splitsList.firstChild);
 
         document.getElementById('copySplitsBtn').disabled = false;
+        document.getElementById('clearSplitsBtn').disabled = false;
     }
 
     resetStopwatch() {
@@ -806,6 +831,15 @@ class BakingApp {
         document.getElementById('stopwatchStartBtn').classList.add('btn-success');
         document.getElementById('stopwatchSplitBtn').disabled = true;
         document.getElementById('copySplitsBtn').disabled = true;
+        document.getElementById('clearSplitsBtn').disabled = true;
+    }
+
+    clearSplits() {
+        if (this.stopwatch.splits.length === 0) return;
+        this.stopwatch.splits = [];
+        document.getElementById('splitsList').innerHTML = '';
+        document.getElementById('copySplitsBtn').disabled = true;
+        document.getElementById('clearSplitsBtn').disabled = true;
     }
 
     copySplits() {
@@ -1031,6 +1065,14 @@ class BakingApp {
     deleteAlarm(alarmId) {
         if (!confirm('Delete this alarm?')) return;
         this.alarms = this.alarms.filter(a => a.id !== alarmId);
+        this.saveData();
+        this.renderAlarms();
+    }
+
+    clearAllAlarms() {
+        if (this.alarms.length === 0) return;
+        if (!confirm('Delete all alarms?')) return;
+        this.alarms = [];
         this.saveData();
         this.renderAlarms();
     }

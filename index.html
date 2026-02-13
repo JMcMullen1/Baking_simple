@@ -111,7 +111,10 @@
             <section class="view" id="view-recipes">
                 <div class="view-header">
                     <h2>Recipe Book</h2>
-                    <button class="btn btn-primary" onclick="app.showAddRecipeForm()">+ Add Recipe</button>
+                    <div class="view-header-actions">
+                        <button class="btn btn-small btn-danger" onclick="app.deleteAllRecipes()">Delete All</button>
+                        <button class="btn btn-primary" onclick="app.showAddRecipeForm()">+ Add Recipe</button>
+                    </div>
                 </div>
 
                 <div class="recipe-controls">
@@ -197,7 +200,10 @@
             <section class="view" id="view-timers">
                 <div class="view-header">
                     <h2>Timers</h2>
-                    <div class="mascot-inline" id="bailey-timer"></div>
+                    <div class="view-header-actions">
+                        <button class="btn btn-small btn-danger" onclick="app.clearAllTimers()">Clear All</button>
+                        <div class="mascot-inline" id="bailey-timer"></div>
+                    </div>
                 </div>
 
                 <div class="timer-presets">
@@ -278,7 +284,10 @@
                 <div class="splits-section">
                     <div class="splits-header">
                         <h3>Splits</h3>
-                        <button class="btn btn-small" id="copySplitsBtn" onclick="app.copySplits()" disabled>Copy All</button>
+                        <div class="splits-header-actions">
+                            <button class="btn btn-small btn-danger" id="clearSplitsBtn" onclick="app.clearSplits()" disabled>Clear Splits</button>
+                            <button class="btn btn-small" id="copySplitsBtn" onclick="app.copySplits()" disabled>Copy All</button>
+                        </div>
                     </div>
                     <div class="splits-list" id="splitsList"></div>
                 </div>
@@ -288,7 +297,10 @@
             <section class="view" id="view-alarms">
                 <div class="view-header">
                     <h2>Alarms</h2>
-                    <button class="btn btn-primary" onclick="app.showAddAlarmForm()">+ Add Alarm</button>
+                    <div class="view-header-actions">
+                        <button class="btn btn-small btn-danger" onclick="app.clearAllAlarms()">Clear All</button>
+                        <button class="btn btn-primary" onclick="app.showAddAlarmForm()">+ Add Alarm</button>
+                    </div>
                 </div>
 
                 <div class="alarm-info card">
