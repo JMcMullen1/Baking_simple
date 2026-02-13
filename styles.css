@@ -215,11 +215,17 @@ body {
 
 /* SVG placeholders will be set via JS */
 #bailey-mascot, #bailey-timer, #bailey-celebrate, #bailey-alarm {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="40" r="25" fill="%23F4A460"/><circle cx="42" cy="35" r="3" fill="%23000"/><circle cx="58" cy="35" r="3" fill="%23000"/><ellipse cx="50" cy="45" rx="8" ry="6" fill="%23FFB6C1"/><path d="M 30,25 Q 20,15 25,10" stroke="%23F4A460" stroke-width="3" fill="none"/><path d="M 70,25 Q 80,15 75,10" stroke="%23F4A460" stroke-width="3" fill="none"/><rect x="40" y="10" width="20" height="8" rx="4" fill="%23FFD700"/><text x="50" y="75" text-anchor="middle" font-size="10" fill="%23666">Bailey</text></svg>');
+    background-image: url('https://i.postimg.cc/fyR2Lww6/Bailey-for-baking-app-no-background.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #nellie-mascot, #nellie-stopwatch, #nellie-celebrate, #nellie-alarm {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="40" r="28" fill="%23DAA520"/><circle cx="42" cy="35" r="3" fill="%23000"/><circle cx="58" cy="35" r="3" fill="%23000"/><ellipse cx="50" cy="48" rx="10" ry="8" fill="%23FFB6C1"/><path d="M 25,30 Q 15,20 18,15" stroke="%23DAA520" stroke-width="4" fill="none"/><path d="M 75,30 Q 85,20 82,15" stroke="%23DAA520" stroke-width="4" fill="none"/><rect x="38" y="8" width="24" height="10" rx="5" fill="%23FF6B6B"/><ellipse cx="50" y="13" rx="6" ry="4" fill="%23FFF"/><text x="50" y="78" text-anchor="middle" font-size="10" fill="%23666">Nellie</text></svg>');
+    background-image: url('https://i.postimg.cc/kXhZ2tt4/Nellie-for-baking-app-no-background.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .celebration-mascots {
