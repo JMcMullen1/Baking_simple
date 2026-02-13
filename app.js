@@ -97,7 +97,9 @@ class BakingApp {
             { text: "Fold egg whites gently with a spatula to keep the air in. Vigorous stirring is simply undignified. I treat all delicate things with the utmost respect.", author: "- Bailey" },
             { text: "Scrape down the sides of your mixing bowl halfway through! I forgot and ended up with a big lump of unmixed flour in my cupcakes. I told everyone it was a surprise filling.", author: "- Nellie" },
             { text: "Use real vanilla extract, never imitation. One can always tell the difference. I have a refined palate and I will not be deceived by substitutes.", author: "- Bailey" },
-            { text: "Zest your citrus BEFORE you juice it! I juiced the lemon first and then tried to zest it and it just squished everywhere and now my eyes sting and I can't find dog phone to ask for help!", author: "- Nellie" }
+            { text: "Zest your citrus BEFORE you juice it! I juiced the lemon first and then tried to zest it and it just squished everywhere and now my eyes sting and I can't find dog phone to ask for help!", author: "- Nellie" },
+            { text: "Always clean as you go - a tidy workspace is the foundation of refined baking. I personally ensure every yoghurt pot is thoroughly cleaned out before it reaches the bin. I'd extend the same courtesy to cream pots, buttermilk cartons, and any other container that requires my... inspection.", author: "- Bailey" },
+            { text: "Clean up as you go so you don't end up with a massive mess at the end! My method is to immediately eat any crumbs that land on the counter. And the floor. And my paws. I'm basically a living dustpan. Dog phone said that doesn't count as cleaning but I STRONGLY disagree!", author: "- Nellie" }
         ];
         this.currentTipIndex = 0;
 
