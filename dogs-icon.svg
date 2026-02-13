@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background circle -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB6C1"/>
+      <stop offset="100%" style="stop-color:#B4E4FF"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="256" fill="url(#bg)"/>
+  <!-- Bailey (left) -->
+  <image href="https://i.postimg.cc/fyR2Lww6/Bailey-for-baking-app-no-background.png" x="20" y="56" width="240" height="400"/>
+  <!-- Nellie (right) -->
+  <image href="https://i.postimg.cc/kXhZ2tt4/Nellie-for-baking-app-no-background.png" x="252" y="56" width="240" height="400"/>
+</svg>

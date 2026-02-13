@@ -1,0 +1,30 @@
+{
+  "name": "Baking App - Simone's Kitchen Companion",
+  "short_name": "Baking App",
+  "description": "Simone's Kitchen Companion for baking",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FFF5F7",
+  "theme_color": "#FFB6C1",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "dogs-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/fyR2Lww6/Bailey-for-baking-app-no-background.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/kXhZ2tt4/Nellie-for-baking-app-no-background.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

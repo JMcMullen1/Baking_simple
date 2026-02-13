@@ -88,6 +88,15 @@ body {
     animation-delay: 0.5s;
 }
 
+.header-cupcake-pink {
+    background-image: url('cupcake-pink.svg');
+}
+
+.header-cupcake-blue {
+    background-image: url('cupcake-blue.svg');
+    animation-delay: 0.5s;
+}
+
 .header-text {
     flex-shrink: 0;
 }
