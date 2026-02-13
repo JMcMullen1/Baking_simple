@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120">
+  <!-- Wrapper -->
+  <path d="M28,62 L34,108 L66,108 L72,62 Z" fill="#FF69B4"/>
+  <path d="M28,62 L72,62" stroke="#FF1493" stroke-width="1.5"/>
+  <path d="M33,62 L37,108" stroke="#FF1493" stroke-width="1" opacity="0.5"/>
+  <path d="M43,62 L45,108" stroke="#FF1493" stroke-width="1" opacity="0.5"/>
+  <path d="M53,62 L53,108" stroke="#FF1493" stroke-width="1" opacity="0.5"/>
+  <path d="M63,62 L61,108" stroke="#FF1493" stroke-width="1" opacity="0.5"/>
+  <path d="M68,62 L64,108" stroke="#FF1493" stroke-width="1" opacity="0.5"/>
+  <!-- Frosting -->
+  <ellipse cx="50" cy="60" rx="28" ry="8" fill="#FFB6C1"/>
+  <circle cx="34" cy="52" r="14" fill="#FF69B4"/>
+  <circle cx="50" cy="46" r="16" fill="#FFB6C1"/>
+  <circle cx="66" cy="52" r="14" fill="#FF69B4"/>
+  <circle cx="42" cy="44" r="12" fill="#FFC0CB"/>
+  <circle cx="58" cy="44" r="12" fill="#FFC0CB"/>
+  <circle cx="50" cy="36" r="11" fill="#FFB6C1"/>
+  <!-- Cherry -->
+  <circle cx="50" cy="24" r="8" fill="#FF2D2D"/>
+  <ellipse cx="47" cy="22" rx="3" ry="2" fill="#FF6B6B" opacity="0.6"/>
+  <path d="M50,24 Q58,10 54,4" stroke="#2E8B57" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Sprinkles -->
+  <rect x="37" y="46" width="6" height="2.5" rx="1.2" fill="#FFD700" transform="rotate(30 40 47)"/>
+  <rect x="56" y="48" width="6" height="2.5" rx="1.2" fill="#00CED1" transform="rotate(-25 59 49)"/>
+  <rect x="44" y="53" width="6" height="2.5" rx="1.2" fill="#FF6347" transform="rotate(50 47 54)"/>
+  <rect x="60" y="55" width="6" height="2.5" rx="1.2" fill="#32CD32" transform="rotate(-40 63 56)"/>
+  <rect x="34" y="55" width="6" height="2.5" rx="1.2" fill="#9370DB" transform="rotate(15 37 56)"/>
+  <rect x="50" y="40" width="6" height="2.5" rx="1.2" fill="#FF69B4" transform="rotate(-10 53 41)"/>
+  <rect x="40" y="38" width="5" height="2" rx="1" fill="#00BFFF" transform="rotate(40 42 39)"/>
+  <rect x="58" y="38" width="5" height="2" rx="1" fill="#FFD700" transform="rotate(-35 60 39)"/>
+</svg>
