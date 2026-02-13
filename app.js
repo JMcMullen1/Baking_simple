@@ -75,7 +75,6 @@ class BakingApp {
             { text: "Always bring butter to room temperature for better creaming. One must exercise patience and refinement - I shall sit in my favourite spot and wait gracefully.", author: "- Bailey" },
             { text: "PREHEAT YOUR OVEN WHILE YOU PREP! I just called dog phone to double check and they said the same thing! Wait, which knob was it again?!", author: "- Nellie" },
             { text: "Measure flour by spooning it into the cup, not scooping. Precision is the mark of a sophisticated baker. I wouldn't dream of doing it any other way. Nellie scoops with her paws. Uncivilised.", author: "- Bailey" },
-            { text: "Room temperature eggs mix better into batters! I rang dog phone to ask why and knocked three eggs off the counter while reaching for it. They still mixed in fine off the floor!", author: "- Nellie" },
             { text: "Don't overmix cake batter - it makes it tough. A gentle, dignified approach yields the finest results. I eat my treats the same way - delicately, in my favourite spot.", author: "- Bailey" },
             { text: "Let cookies cool on the pan for 2 minutes before moving! I tried to wait but I got nervous and ate them all in about 4 seconds. They were still good though!", author: "- Nellie" },
             { text: "Use parchment paper for easy cleanup. A tidy kitchen is the sign of a distinguished baker. Nellie's kitchen looks like a crime scene. If the paper isn't placed correctly, I shall bark until someone fixes it.", author: "- Bailey" },
