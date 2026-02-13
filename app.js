@@ -73,19 +73,31 @@ class BakingApp {
         // Dog tips
         this.dogTips = [
             { text: "Always bring butter to room temperature for better creaming. One must exercise patience and refinement - I shall sit in my favourite spot and wait gracefully.", author: "- Bailey" },
-            { text: "PREHEAT YOUR OVEN WHILE YOU PREP! I just called the dog phone to double check and they said the same thing! Wait, which knob was it again?!", author: "- Nellie" },
+            { text: "PREHEAT YOUR OVEN WHILE YOU PREP! I just called dog phone to double check and they said the same thing! Wait, which knob was it again?!", author: "- Nellie" },
             { text: "Measure flour by spooning it into the cup, not scooping. Precision is the mark of a sophisticated baker. I wouldn't dream of doing it any other way.", author: "- Bailey" },
-            { text: "Room temperature eggs mix better into batters! I rang the dog phone to ask why and knocked three eggs off the counter while reaching for it. They still mixed in fine off the floor!", author: "- Nellie" },
+            { text: "Room temperature eggs mix better into batters! I rang dog phone to ask why and knocked three eggs off the counter while reaching for it. They still mixed in fine off the floor!", author: "- Nellie" },
             { text: "Don't overmix cake batter - it makes it tough. A gentle, dignified approach yields the finest results. I eat my treats the same way - delicately, in my favourite spot.", author: "- Bailey" },
             { text: "Let cookies cool on the pan for 2 minutes before moving! I tried to wait but I got nervous and ate them all in about 4 seconds. They were still good though!", author: "- Nellie" },
             { text: "Use parchment paper for easy cleanup. A tidy kitchen is the sign of a distinguished baker. If the paper isn't placed correctly, I shall bark until someone fixes it.", author: "- Bailey" },
-            { text: "Test cakes with a toothpick - it should come out clean! I ate the toothpick. And then the cake. And then the wrapper. I should probably call the dog phone about this.", author: "- Nellie" },
+            { text: "Test cakes with a toothpick - it should come out clean! I ate the toothpick. And then the cake. And then the wrapper. I should probably call dog phone about this.", author: "- Nellie" },
             { text: "Chill cookie dough for better texture. I shall wait with the composure of royalty. And if the dough isn't chilled to my standard, I will simply bark until it is.", author: "- Bailey" },
-            { text: "Always check your oven temperature with a thermometer! I tripped over the oven door, bumped into the table, and the thermometer went flying. The dog phone said 180 degrees so let's go with that!", author: "- Nellie" },
+            { text: "Always check your oven temperature with a thermometer! I tripped over the oven door, bumped into the table, and the thermometer went flying. Dog phone said 180 degrees so let's go with that!", author: "- Nellie" },
             { text: "Brown butter adds incredible nutty flavor to cookies. Watch it carefully and with a discerning eye - much like how I observe my meals before eating each bite with care. Bang bang! ...oh sorry, force of habit.", author: "- Bailey" },
             { text: "Sift your dry ingredients for the fluffiest cakes! I tried sifting but the flour went EVERYWHERE and now I look like a ghost and I'm sneezing and slightly panicking!", author: "- Nellie" },
             { text: "A pinch of salt enhances sweetness in any dessert. A small but wise adjustment - the kind of sensible decision that separates the refined from the reckless.", author: "- Bailey" },
-            { text: "Let bread dough rise in a warm spot! I sat on it to keep it warm because I didn't know what else to do. Just called the dog phone and they said that's wrong. Oops.", author: "- Nellie" }
+            { text: "Let bread dough rise in a warm spot! I sat on it to keep it warm because I didn't know what else to do. Just called dog phone and they said that's wrong. Oops.", author: "- Nellie" },
+            { text: "Bloom cocoa powder in hot water for the deepest chocolate flavour. It's a subtle art - much like the way I position myself on the sofa for optimal sunbeam coverage.", author: "- Bailey" },
+            { text: "Read the WHOLE recipe before you start baking! I got halfway through and realised I needed cream cheese and I don't even know what that IS so I used regular cheese. It was not great!", author: "- Nellie" },
+            { text: "Weigh your ingredients with a kitchen scale for perfect consistency. Guesswork is for amateurs. I weigh every decision in life with the same careful consideration.", author: "- Bailey" },
+            { text: "Don't open the oven door too early or your cake might sink! I opened it seven times to check. Then I barked at it. It sank. I don't understand why.", author: "- Nellie" },
+            { text: "Let cakes cool completely in the tin before frosting. Rushing is beneath us. I once waited forty-five minutes for my dinner without so much as a whimper.", author: "- Bailey" },
+            { text: "Grease your baking pans really well so nothing sticks! I used way too much butter and the pan shot across the counter like a hockey puck. The cake went with it.", author: "- Nellie" },
+            { text: "Toast nuts in a dry pan before adding them to batter. The aroma should fill the kitchen like a fine perfume - not unlike the way I announce my entrance to any room.", author: "- Bailey" },
+            { text: "Measure baking powder carefully - too much and things taste weird! I couldn't read the teaspoon markings so I just dumped some in. The muffins tasted like a swimming pool.", author: "- Nellie" },
+            { text: "Fold egg whites gently with a spatula to keep the air in. Vigorous stirring is simply undignified. I treat all delicate things with the utmost respect.", author: "- Bailey" },
+            { text: "Scrape down the sides of your mixing bowl halfway through! I forgot and ended up with a big lump of unmixed flour in my cupcakes. I told everyone it was a surprise filling.", author: "- Nellie" },
+            { text: "Use real vanilla extract, never imitation. One can always tell the difference. I have a refined palate and I will not be deceived by substitutes.", author: "- Bailey" },
+            { text: "Zest your citrus BEFORE you juice it! I juiced the lemon first and then tried to zest it and it just squished everywhere and now my eyes sting and I can't find dog phone to ask for help!", author: "- Nellie" }
         ];
         this.currentTipIndex = 0;
 
@@ -393,7 +405,7 @@ class BakingApp {
                 <div class="empty-state-mascot card">
                     <div class="empty-mascot-img empty-nellie"></div>
                     <h3>No recipes found!</h3>
-                    <p>Nellie is frantically waiting for your first recipe! She's already eaten the example one. And the paper it was written on. She called the dog phone to ask if that's okay.</p>
+                    <p>Nellie is frantically waiting for your first recipe! She's already eaten the example one. And the paper it was written on. She called dog phone to ask if that's okay.</p>
                     <button class="btn btn-primary" onclick="app.showAddRecipeForm()">+ Add Your First Recipe</button>
                 </div>`;
             return;
@@ -988,7 +1000,7 @@ class BakingApp {
                 <div class="empty-state-mascot card">
                     <div class="empty-mascot-img empty-nellie"></div>
                     <h3>No alarms set</h3>
-                    <p>Nellie will keep one ear up for you! She might nervously knock over the clock checking if it's time, but she means well. She's already called the dog phone twice about it.</p>
+                    <p>Nellie will keep one ear up for you! She might nervously knock over the clock checking if it's time, but she means well. She's already called dog phone twice about it.</p>
                 </div>`;
             return;
         }
